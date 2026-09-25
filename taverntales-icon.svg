@@ -1,16 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
   <title id="title">TavernTales: a foamy tankard, storybook, and quill</title>
   <defs>
-    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1f1839"/>
-      <stop offset="1" stop-color="#090b10"/>
-    </linearGradient>
     <linearGradient id="ale" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#f3ba58"/>
       <stop offset="1" stop-color="#b76e2b"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="80" fill="url(#night)"/>
   <path d="M128 421V217a128 128 0 0 1 256 0v204" fill="#302753" stroke="#90693d" stroke-width="10"/>
   <path d="M128 217a128 128 0 0 1 256 0" fill="none" stroke="#e7ba67" stroke-width="8"/>
   <path d="M155 417V230a101 101 0 0 1 202 0v187" fill="none" stroke="#90693d" stroke-width="5"/>
