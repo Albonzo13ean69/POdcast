@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>TavernTales — D&D Podcasts & Stories</title>
 <meta name="theme-color" content="#090b10">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,6 +32,38 @@
 @media(max-width:700px){.reply{margin-left:15px}}
 .logo{display:flex;align-items:center;gap:9px}.logo img{width:34px;height:34px;object-fit:cover;border-radius:9px;box-shadow:0 0 18px #7c5cff40}.logo .logoName{color:var(--text)}.logo .logoName span{color:var(--a)}
 </style>
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden}
+header{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));-webkit-backdrop-filter:blur(16px)}
+.modalBg{-webkit-backdrop-filter:blur(8px)}
+.modal{max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+input,textarea,select{font-size:16px}
+img,video,audio{max-width:100%}
+button,.tab{touch-action:manipulation}
+@media(max-width:640px){
+ header{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;height:auto;min-height:0;padding:calc(8px + env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 9px max(12px,env(safe-area-inset-left))}
+ .logo{font-size:20px;gap:8px}.logo img{width:31px;height:31px}
+ .headBtns{width:100%;min-width:0;justify-content:flex-end;gap:6px;flex-wrap:wrap}
+ .headBtns .btn{padding:8px 10px;font-size:13px;min-height:44px}
+ #account{max-width:48vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ main{padding:18px max(14px,env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+ .hero{padding:5px 0 22px}.hero h1{font-size:clamp(34px,10vw,50px);letter-spacing:-1.5px}.hero p{font-size:16px;line-height:1.55}
+ .feature{gap:13px;margin-bottom:26px}.featureCard{min-height:260px}.featureImg{height:260px}.featureCopy{padding:18px}.featureCopy h2{font-size:24px}.featureCopy p{font-size:14px}.side{padding:18px}
+ .grid{gap:13px}.card:hover{transform:none}.thumb{height:clamp(150px,52vw,220px)}.body{padding:14px}.empty{padding:42px 16px}
+ .article h1{font-size:clamp(32px,9vw,48px);letter-spacing:-1.4px}.articleText{font-size:16px;line-height:1.7;overflow-wrap:anywhere}.cover{max-height:360px;margin:14px 0}.video{border-radius:12px;margin:14px 0}.watchMain .video{max-height:65vh;max-height:65dvh}
+ .watchSidebar{margin-top:22px}.recommendItem{grid-template-columns:minmax(115px,38%) minmax(0,1fr);gap:9px}
+ .postActions{gap:7px}.postActions .btn{padding:9px 10px}.commentBox{margin-top:22px;padding-top:18px}
+ .modalBg{align-items:flex-start;justify-content:center;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom))}
+ .modal{width:100%;padding:18px;border-radius:16px}.small{width:100%}.modalHead h2{font-size:20px}.actions{flex-wrap:wrap}.creatorHeader{padding:15px;gap:13px}.creatorAvatar{width:74px;height:74px;font-size:30px}.creatorTitle h1{font-size:27px}
+ .menu{right:10px;top:calc(100% - 1px);max-width:calc(100vw - 20px)}
+}
+@media(max-width:380px){
+ .headBtns .btn{padding:7px 8px;font-size:12px}
+ .logo{font-size:18px}.logo img{width:28px;height:28px}
+ .recommendItem{grid-template-columns:minmax(105px,36%) minmax(0,1fr)}
+}
+</style>
 </head>
 <body>
 <header><div class="logo" onclick="home()"><img src="taverntales-icon-192.png" alt=""><span class="logoName">Tavern<span>Tales</span></span></div><div class="search"><input id="search" placeholder="Search podcasts, blogs and posts…" oninput="render()"></div><div class="headBtns"><button id="settingsBtn" class="btn" onclick="settings()">⚙️ Settings</button><button id="notifyBtn" class="btn hide" onclick="notifications()">🔔 <span id="notifyCount"></span></button><button id="postBtn" class="btn primary hide" onclick="editor()">＋ Post</button><button id="account" class="btn" onclick="auth()">Sign in</button></div></header>
@@ -51,6 +83,7 @@ if(localStorage.getItem('podly_config_revision')!=='supabase-project-1'){
 }
 
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function newUUID(){if(window.crypto?.randomUUID)return window.crypto.randomUUID();const b=new Uint8Array(16);window.crypto.getRandomValues(b);b[6]=(b[6]&15)|64;b[8]=(b[8]&63)|128;return Array.from(b,(v,i)=>`${[4,6,8,10].includes(i)?'-':''}${v.toString(16).padStart(2,'0')}`).join('')}
 function date(s){return new Date(s||Date.now()).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}
 function icon(t){return ({podcast:'🎙️',blog:'📝',announcement:'📢',image:'🖼️'})[t]||'✦'}
 function local(){try{return JSON.parse(localStorage.getItem('podly_posts')||'[]')}catch{return[]}}
@@ -100,14 +133,14 @@ function postRef(p){
   }
   return null;
 }
-function postClientKey(p){return p.__ttKey||(p.__ttKey=crypto.randomUUID())}
+function postClientKey(p){return p.__ttKey||(p.__ttKey=newUUID())}
 function findPost(ref){
   if(!ref)return null;
   const s=decodeURIComponent(String(ref));
   return posts.find(p=>String(postClientKey(p))===s)||posts.find(p=>{const r=postRef(p);return r&&String(r.value)===s})||null;
 }
 function normalizePosts(rows){
-  posts=(rows||[]).map(p=>({...p,__ttKey:crypto.randomUUID()}));
+  posts=(rows||[]).map(p=>({...p,__ttKey:newUUID()}));
   return posts;
 }
 function mediaMime(url){
@@ -421,7 +454,7 @@ function clearPostThumbnail(){
 function fileExtension(file){return (file.name.split('.').pop()||'bin').toLowerCase().replace(/[^a-z0-9]/g,'')||'bin'}
 async function uploadFile(file,folder){
  if(!supa)throw new Error('Connect Supabase first in Settings.');
- const ext=fileExtension(file),path=`${folder}/${crypto.randomUUID()}.${ext}`;
+ const ext=fileExtension(file),path=`${folder}/${newUUID()}.${ext}`;
  const contentType=mediaTypeForFile(file);
  if(!contentType)throw new Error(`Could not determine the file type for ${file.name}. Try a standard image, MP4/WebM video, or audio file.`);
  const up=await supa.storage.from(MEDIA_BUCKET).upload(path,file,{upsert:false,contentType,cacheControl:'3600'});
@@ -472,7 +505,7 @@ async function publish(){
    await load();
   }else{
    if(editId){const p=findPost(editId),i=posts.indexOf(p);if(i>=0)posts[i]={...posts[i],...d};}
-   else posts.unshift({id:crypto.randomUUID(),...d,created_at:new Date().toISOString(),__ttKey:crypto.randomUUID()});
+   else posts.unshift({id:newUUID(),...d,created_at:new Date().toISOString(),__ttKey:newUUID()});
    saveLocal();await prepareAllPostMedia();
   }
   if(editedPost?.thumbnail_url&&editedPost.thumbnail_url!==thumbUrl)try{await removeStoredMedia(editedPost.thumbnail_url)}catch(e){console.warn('Could not remove replaced thumbnail from storage:',e)}
@@ -511,7 +544,7 @@ async function addComment(postId){
  const p=findPost(postId)||findPost(currentPostId);if(!p)return;if(!user)return auth();const text=document.getElementById('commentText')?.value.trim();if(!text)return;
  const ref=postRef(p);if(!ref&&supa)return appAlert('This post has no recognized database key.','Comment unavailable');
  if(supa){const r=await supa.from('comments').insert({post_id:ref.value,user_id:user.id,username:usernameOf(),content:text,parent_id:replyTo||null});if(r.error)return appAlert(r.error.message,'Comment failed')}
- else{const k='podly_comments_'+postClientKey(p),a=JSON.parse(localStorage.getItem(k)||'[]');a.push({id:crypto.randomUUID(),user_id:user.id,username:usernameOf(),content:text,parent_id:replyTo||null,pinned:false,created_at:new Date().toISOString()});localStorage.setItem(k,JSON.stringify(a))}
+ else{const k='podly_comments_'+postClientKey(p),a=JSON.parse(localStorage.getItem(k)||'[]');a.push({id:newUUID(),user_id:user.id,username:usernameOf(),content:text,parent_id:replyTo||null,pinned:false,created_at:new Date().toISOString()});localStorage.setItem(k,JSON.stringify(a))}
  replyTo=null;openPost(postClientKey(p))
 }
 
