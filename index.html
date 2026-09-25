@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TavernTales — D&D Podcasts & Stories</title>
+<meta name="theme-color" content="#090b10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TavernTales">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="taverntales-icon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="taverntales-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="taverntales-icon-180.png">
+<style>
+:root{--bg:#090b10;--p:#121620;--p2:#191e29;--line:#2a3140;--text:#f6f7fb;--muted:#9ca5b5;--a:#7c5cff;--a2:#9a84ff;--danger:#ef4444}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.hide{display:none!important}header{position:sticky;top:0;z-index:20;height:68px;display:flex;align-items:center;gap:18px;padding:0 24px;background:#090b10e8;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.logo{font-weight:900;font-size:23px;cursor:pointer}.logo span{color:var(--a)}.search{flex:1;max-width:600px;margin:auto}.search input,.field input,.field textarea,.field select{width:100%;background:#0d1016;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:11px;outline:0}.search input{height:42px}.search input:focus,.field input:focus,.field textarea:focus{border-color:var(--a)}.headBtns{display:flex;gap:8px}.btn{background:var(--p2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:750}.btn:hover{filter:brightness(1.15)}.primary{background:var(--a);border-color:var(--a)}.danger{color:#ff9b9b}main{max-width:1240px;margin:auto;padding:30px 22px 70px}.hero{padding:25px 0 32px}.eyebrow,.meta{color:var(--a2);font-size:12px;font-weight:850;letter-spacing:1.2px;text-transform:uppercase}.hero h1{font-size:clamp(40px,6vw,70px);line-height:.98;letter-spacing:-2.5px;margin:10px 0 16px}.hero p{color:var(--muted);font-size:17px;max-width:700px;line-height:1.6}.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:22px}.tab{border:1px solid var(--line);background:var(--p);color:var(--muted);border-radius:999px;padding:9px 15px;white-space:nowrap}.tab.active{background:var(--a);border-color:var(--a);color:white}.feature{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-bottom:34px}.featureCard,.side{border:1px solid var(--line);border-radius:19px;overflow:hidden;background:var(--p)}.featureCard{min-height:330px;position:relative;cursor:pointer}.featureImg{width:100%;height:330px;object-fit:cover}.featureCopy{position:absolute;left:0;right:0;bottom:0;padding:28px;background:linear-gradient(transparent,#07090ef2)}.featureCopy h2{margin:6px 0;font-size:30px}.featureCopy p{margin:0;color:#d3d8e2}.side{padding:24px}.side h3{margin-top:8px}.side p{color:var(--muted);line-height:1.6}.titleRow{display:flex;justify-content:space-between;align-items:center;margin:18px 0 15px}.titleRow h2{margin:0}.count{font-size:13px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--p);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.18s;cursor:pointer}.card:hover{transform:translateY(-3px);border-color:#465063}.thumb{height:175px;background:var(--p2);display:flex;align-items:center;justify-content:center;font-size:48px;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover}.body{padding:16px}.body h3{margin:7px 0}.body p{font-size:14px;color:var(--muted);line-height:1.5}.foot{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.empty{text-align:center;padding:65px 20px;border:1px dashed var(--line);border-radius:16px;color:var(--muted)}.article{max-width:850px;margin:auto}.article h1{font-size:clamp(38px,5vw,62px);line-height:1.04}.cover{width:100%;max-height:500px;object-fit:cover;border-radius:18px;margin:20px 0}.articleText{white-space:pre-wrap;color:#d9dee7;font-size:18px;line-height:1.85}.audio{width:100%;margin:15px 0}.modalBg{position:fixed;z-index:100;inset:0;background:#000b;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px}.modal{width:min(720px,100%);max-height:92vh;overflow:auto;background:var(--p);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 25px 80px #000a}.small{width:min(430px,100%)}.modalHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.modalHead h2{margin:0}.close{border:0;background:none;color:var(--muted);font-size:27px}.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{margin-bottom:13px}.field.full{grid-column:1/-1}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:7px}.field textarea{min-height:135px;resize:vertical}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.authTabs{display:flex;gap:4px;background:var(--p2);padding:4px;border-radius:10px;margin-bottom:18px}.authTabs button{flex:1;border:0;background:none;color:var(--muted);padding:10px;border-radius:8px}.authTabs button.active{background:var(--a);color:#fff}.msg{font-size:13px;margin:8px 0}.err{color:#ff9292}.ok{color:#72e39a}.notice{padding:11px;border:1px solid #4e4290;background:#211c39;color:#ddd7ff;border-radius:10px;font-size:13px;margin-bottom:14px}.menu{position:absolute;right:20px;top:60px;background:var(--p);border:1px solid var(--line);border-radius:12px;padding:8px;min-width:200px}.menu button{display:block;width:100%;background:none;border:0;color:var(--text);text-align:left;padding:10px;border-radius:8px}.menu button:hover{background:var(--p2)}.postActions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.reaction{display:inline-flex;align-items:center;gap:6px}.commentBox{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}.comment{padding:14px 0;border-bottom:1px solid var(--line)}.commentHead{display:flex;justify-content:space-between;gap:10px;font-size:13px}.commentText{color:#d9dee7;line-height:1.5;margin-top:6px}.recommend{margin-top:36px}.recommendGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.notification{padding:13px;border-bottom:1px solid var(--line);cursor:pointer}.notification.unread{background:#1b1830}.notification small{color:var(--muted)}@media(max-width:700px){.recommendGrid{grid-template-columns:1fr}}@media(max-width:850px){.feature{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.search{display:none}}@media(max-width:560px){.grid{grid-template-columns:1fr}.formGrid{grid-template-columns:1fr}.field.full{grid-column:auto}.headBtns .optional{display:none}main{padding:20px 14px}}
+[data-theme="light"]{--bg:#f5f7fb;--p:#fff;--p2:#eef1f7;--line:#d9deea;--text:#111827;--muted:#667085}body{transition:background .2s,color .2s}.no-anim *{transition:none!important;animation:none!important}
+@media(max-width:1100px){.watchLayout{grid-template-columns:minmax(0,1fr) 320px;gap:18px}.recommendItem{grid-template-columns:130px minmax(0,1fr)}}
+@media(max-width:850px){.watchLayout{grid-template-columns:1fr}.watchSidebar{position:static;max-height:none}.recommendItem{grid-template-columns:minmax(140px,32%) minmax(0,1fr)}}
+@media(max-width:560px){.creatorHeader{padding:17px;gap:14px}.creatorAvatar{width:78px;height:78px;font-size:34px}}
+
+.reply{margin-left:28px;border-left:2px solid var(--line);padding-left:14px}
+.officialBadge,.ownerBadge{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:850;letter-spacing:.2px;text-transform:uppercase;vertical-align:middle}.officialBadge{background:#362b08;color:#ffd86b}.ownerBadge{background:#321d48;color:#d9a6ff}
+.authorLink{border:0;padding:0;background:none;color:var(--muted);font:inherit;text-align:left;cursor:pointer}.authorLink:hover{text-decoration:underline;color:var(--text)}
+.commentTools{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.commentTools button{font-size:12px;padding:6px 9px}
+.pinned{border:1px solid var(--a);background:#1b1830;border-radius:10px;padding:10px;margin-bottom:8px}
+.pinLabel{color:var(--a2);font-size:11px;font-weight:800;text-transform:uppercase}
+.pushNotice{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);background:var(--p2);border-radius:12px;margin-bottom:14px}
+.video{width:100%;max-height:560px;border-radius:18px;background:#000;margin:20px 0}
+.watchLayout{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:26px;align-items:start}.watchMain{max-width:none;width:100%;min-width:0}.watchMain .video{max-height:min(70vh,760px);aspect-ratio:16/9;object-fit:contain}.watchSidebar{position:sticky;top:86px;max-height:calc(100vh - 105px);overflow:auto}.watchSidebar h2{font-size:19px;margin:4px 0 14px}.recommendItem{display:grid;grid-template-columns:168px minmax(0,1fr);gap:11px;margin-bottom:13px;cursor:pointer}.recommendThumb{aspect-ratio:16/9;border-radius:9px;overflow:hidden;background:var(--p2);display:flex;align-items:center;justify-content:center;color:var(--muted)}.recommendThumb img{width:100%;height:100%;object-fit:cover}.recommendCopy{min-width:0}.recommendCopy b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;line-height:1.35}.recommendCopy small{display:block;color:var(--muted);font-size:12px;margin-top:5px}.creatorHeader{display:flex;align-items:center;gap:22px;padding:26px;background:var(--p);border:1px solid var(--line);border-radius:18px;margin:22px 0 30px}.creatorAvatar{width:112px;height:112px;border-radius:50%;object-fit:cover;background:var(--p2);display:flex;align-items:center;justify-content:center;font-size:45px;flex:none}.creatorBio{color:var(--muted);white-space:pre-wrap;line-height:1.6;margin:8px 0 0}.creatorTitle{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.creatorTitle h1{font-size:clamp(28px,4vw,42px);margin:0}
+.mediaError{padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--p2);color:var(--muted);font-size:14px}
+.dialogRoot{position:fixed;inset:0;z-index:200}.dialogRoot:empty{display:none}
+@media(max-width:700px){.reply{margin-left:15px}}
+.logo{display:flex;align-items:center;gap:9px}.logo img{width:34px;height:34px;object-fit:cover;border-radius:9px;box-shadow:0 0 18px #7c5cff40}.logo .logoName{color:var(--text)}.logo .logoName span{color:var(--a)}
+</style>
+</head>
+<body>
+<header><div class="logo" onclick="home()"><img src="taverntales-icon-192.png" alt=""><span class="logoName">Tavern<span>Tales</span></span></div><div class="search"><input id="search" placeholder="Search podcasts, blogs and posts…" oninput="render()"></div><div class="headBtns"><button id="settingsBtn" class="btn" onclick="settings()">⚙️ Settings</button><button id="notifyBtn" class="btn hide" onclick="notifications()">🔔 <span id="notifyCount"></span></button><button id="postBtn" class="btn primary hide" onclick="editor()">＋ Post</button><button id="account" class="btn" onclick="auth()">Sign in</button></div></header>
+<main id="app"></main><div id="modal"></div><div id="dialogRoot" class="dialogRoot"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const TYPES={podcast:'🎙️ Podcast',blog:'📝 Blog',announcement:'📢 Announcement',image:'🖼️ Image'};
+const DEFAULT_SUPABASE_URL='https://psygguwemigzfzrrjztz.supabase.co';
+const DEFAULT_SUPABASE_KEY='sb_publishable_tl96bEAoxZM_gZ41GEe-Kg_YjJJrecD';
+let supa=null,user=null,posts=[],filter='all',editId=null,currentPostId=null,replyTo=null,pageView='home',profileReturnPost='';
+
+// Configure fresh browsers with this project's public client credentials once.
+if(localStorage.getItem('podly_config_revision')!=='supabase-project-1'){
+ localStorage.setItem('podly_url',DEFAULT_SUPABASE_URL);
+ localStorage.setItem('podly_key',DEFAULT_SUPABASE_KEY);
+ localStorage.setItem('podly_config_revision','supabase-project-1');
+}
+
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function date(s){return new Date(s||Date.now()).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}
+function icon(t){return ({podcast:'🎙️',blog:'📝',announcement:'📢',image:'🖼️'})[t]||'✦'}
+function local(){try{return JSON.parse(localStorage.getItem('podly_posts')||'[]')}catch{return[]}}
+function saveLocal(){localStorage.setItem('podly_posts',JSON.stringify(posts))}
+function hiddenEmail(name){return name.trim().toLowerCase().replace(/[^a-z0-9._-]/g,'')+'@taverntales.app'}
+function usernameOf(){return user?.user_metadata?.username||localStorage.getItem('podly_username')||''}
+function isOwner(){const owner=localStorage.getItem('podly_owner_username')||'AlbozoB3an';return !!user&&usernameOf().toLowerCase()===owner.toLowerCase()}
+const OFFICIAL_USERS=['raven','orizon','glenn the brave'];
+function isOfficialUsername(name){return OFFICIAL_USERS.includes(String(name||'').trim().toLowerCase())}
+function isOwnerUsername(name){const owner=localStorage.getItem('podly_owner_username')||'AlbozoB3an';return String(name||'').trim().toLowerCase()===owner.toLowerCase()}
+function isOfficial(){return !!user&&isOfficialUsername(usernameOf())}
+function canPublish(){return isOwner()||isOfficial()}
+function authorLabel(p){return String(p?.author_username||p?.username||'AlbozoB3an')}
+function badgeMarkup(name){return isOwnerUsername(name)?' <span class="ownerBadge">★ Owner</span>':isOfficialUsername(name)?' <span class="officialBadge">✓ Official</span>':''}
+function authorMarkup(p){const name=authorLabel(p);return `<button type="button" class="authorLink" data-creator="${esc(name)}" onclick="event.stopPropagation();openCreator(this.dataset.creator)">${esc(name)}${badgeMarkup(name)}</button>`}
+function profileDataFor(name){const key='podly_profile_'+String(name||'').toLowerCase();try{return JSON.parse(localStorage.getItem(key)||'{}')}catch{return{}}}
+function profileData(){return profileDataFor(usernameOf())}
+function saveProfileData(d){localStorage.setItem('podly_profile_'+usernameOf().toLowerCase(),JSON.stringify(d))}
+function projectSlug(url){try{return new URL(url).hostname.split('.')[0].toLowerCase().replace(/[^a-z0-9_-]/g,'')||'project'}catch{return'project'}}
+function accountStorageKey(url,name){const account=String(name||'default').trim().toLowerCase().replace(/[^a-z0-9_-]/g,'')||'default';return `podly-${projectSlug(url)}-${account}-auth-token`}
+function accountsListKey(url=localStorage.getItem('podly_url')||''){return `podly_accounts_${projectSlug(url)}`}
+function activeAccountKey(url=localStorage.getItem('podly_url')||''){return `podly_active_account_${projectSlug(url)}`}
+function savedAccounts(url=localStorage.getItem('podly_url')||''){try{const names=JSON.parse(localStorage.getItem(accountsListKey(url))||'[]');return Array.isArray(names)?names:[]}catch{return[]}}
+function rememberAccount(name,url=localStorage.getItem('podly_url')||''){
+ const clean=String(name||'').trim();if(!clean)return;
+ const names=savedAccounts(url).filter(x=>String(x).toLowerCase()!==clean.toLowerCase());names.push(clean);
+ localStorage.setItem(accountsListKey(url),JSON.stringify(names));localStorage.setItem(activeAccountKey(url),clean);localStorage.setItem('podly_active_username',clean);localStorage.setItem('podly_username',clean);
+}
+function forgetAccount(name,url=localStorage.getItem('podly_url')||''){
+ const names=savedAccounts(url).filter(x=>String(x).toLowerCase()!==String(name).toLowerCase());
+ localStorage.setItem(accountsListKey(url),JSON.stringify(names));if(localStorage.getItem(activeAccountKey(url))?.toLowerCase()===String(name).toLowerCase())localStorage.removeItem(activeAccountKey(url));if(localStorage.getItem('podly_active_username')?.toLowerCase()===String(name).toLowerCase())localStorage.removeItem('podly_active_username');
+}
+function createAccountClient(url,key,name){return window.supabase.createClient(url,key,{auth:{storageKey:accountStorageKey(url,name)}})}
+function watchAccountClient(client,name,url){
+ if(client.__ttAccountWatch)return;
+ client.__ttAccountWatch=true;
+ client.auth.onAuthStateChange((_event,session)=>{if(supa!==client)return;user=session?.user||null;if(user)rememberAccount(user.user_metadata?.username||name,url);account();render();if(user)refreshNotificationCount()});
+}
+
+
+const MEDIA_BUCKET='podly-media';
+const POST_KEY_FIELDS=['id','post_id','uuid','postid','postId','key','title'];
+
+function postRef(p){
+  for(const field of POST_KEY_FIELDS){
+    if(p && p[field]!==undefined && p[field]!==null && String(p[field]).trim()!=='') return {field,value:p[field]};
+  }
+  return null;
+}
+function postClientKey(p){return p.__ttKey||(p.__ttKey=crypto.randomUUID())}
+function findPost(ref){
+  if(!ref)return null;
+  const s=decodeURIComponent(String(ref));
+  return posts.find(p=>String(postClientKey(p))===s)||posts.find(p=>{const r=postRef(p);return r&&String(r.value)===s})||null;
+}
+function normalizePosts(rows){
+  posts=(rows||[]).map(p=>({...p,__ttKey:crypto.randomUUID()}));
+  return posts;
+}
+function mediaMime(url){
+  if(!url)return '';
+  try{
+    const clean=String(url).split('?')[0].split('#')[0];
+    const ext=(clean.split('.').pop()||'').toLowerCase();
+    return ({mp4:'video/mp4',webm:'video/webm',ogv:'video/ogg',ogg:'video/ogg',mov:'video/quicktime',m4v:'video/mp4',mp3:'audio/mpeg',wav:'audio/wav',m4a:'audio/mp4',aac:'audio/aac',flac:'audio/flac',opus:'audio/ogg'}[ext]||'');
+  }catch{return ''}
+}
+function storagePathFromUrl(url){
+  if(!url)return null;
+  try{
+    const u=new URL(url);
+    const m=u.pathname.match(/\/storage\/v1\/object\/(?:public|sign|authenticated)\/([^/]+)\/(.+)$/);
+    if(!m)return null;
+    return {bucket:decodeURIComponent(m[1]),path:decodeURIComponent(m[2].split('?')[0])};
+  }catch{
+    const raw=String(url).trim().replace(/^\/+/, '');
+    if(!raw||/^(data:|blob:)/i.test(raw))return null;
+    const prefix=MEDIA_BUCKET+'/';
+    const path=raw.startsWith(prefix)?raw.slice(prefix.length):raw;
+    if(!path||/^[a-z][a-z0-9+.-]*:/i.test(path))return null;
+    try{return {bucket:MEDIA_BUCKET,path:decodeURIComponent(path.split('?')[0])}}catch{return {bucket:MEDIA_BUCKET,path:path.split('?')[0]}}
+  }
+}
+function mediaTypeForFile(file){
+ if(file?.type)return file.type;
+ const ext=fileExtension(file);
+ return ({mp4:'video/mp4',m4v:'video/mp4',webm:'video/webm',ogv:'video/ogg',mov:'video/quicktime',mp3:'audio/mpeg',wav:'audio/wav',m4a:'audio/mp4',aac:'audio/aac',flac:'audio/flac',opus:'audio/ogg',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',webp:'image/webp',avif:'image/avif'})[ext]||'';
+}
+async function mediaLoadFailed(el,kind){
+ if(!el||el.dataset.retrying||el.dataset.loadFailed)return;
+ const p=findPost(el.dataset.post||'');
+ if(p&&!el.dataset.retried){
+  el.dataset.retried='1';el.dataset.retrying='true';
+  const field=kind==='video'?'video_url':'thumbnail_url',cache=kind==='video'?'__videoUrl':'__thumbUrl';
+  p[cache]='';
+  const refreshed=await resolveMediaUrl(p[field]);
+  p[cache]=refreshed||p[field]||'';
+  const source=kind==='video'?el.querySelector('source'):null;
+  const oldSrc=kind==='video'?(source?.src||''):el.src;
+  if(p[cache]&&p[cache]!==oldSrc){
+   if(kind==='video'&&source){source.src=p[cache];const mime=mediaMime(p[cache]);if(mime)source.type=mime;el.load()}
+   else if(kind==='thumbnail')el.src=p[cache];
+   el.dataset.retrying='';return;
+  }
+  el.dataset.retrying='';
+ }
+ el.dataset.loadFailed='true';el.style.display='none';
+ const note=document.createElement('div');note.className='mediaError';
+ note.textContent=kind==='video'?'Video could not load after refreshing its link. Check the Supabase podly-media bucket permissions and use an MP4 (H.264) or WebM video.':'Thumbnail could not load after refreshing its link. Check the Supabase podly-media bucket permissions and the saved image URL.';
+ el.insertAdjacentElement('afterend',note);
+}
+async function removeStoredMedia(url){
+ const info=storagePathFromUrl(url);
+ if(!supa||!info)return;
+ const r=await supa.storage.from(info.bucket).remove([info.path]);
+ if(r.error)throw r.error;
+}
+async function resolveMediaUrl(url){
+  if(!url||!supa)return url||'';
+  const info=storagePathFromUrl(url);
+  if(!info)return url;
+  try{
+    const signed=await supa.storage.from(info.bucket).createSignedUrl(info.path,3600);
+    if(!signed.error&&signed.data?.signedUrl)return signed.data.signedUrl;
+  }catch{}
+  try{
+    return supa.storage.from(info.bucket).getPublicUrl(info.path).data.publicUrl||url;
+  }catch{return url}
+}
+async function preparePostMedia(p){
+  if(!p)return;
+  const [thumb,video,audio]=await Promise.all([resolveMediaUrl(p.thumbnail_url),resolveMediaUrl(p.video_url),resolveMediaUrl(p.audio_url)]);
+  p.__thumbUrl=thumb||p.thumbnail_url||'';
+  p.__videoUrl=video||p.video_url||'';
+  p.__audioUrl=audio||p.audio_url||'';
+}
+async function prepareAllPostMedia(){await Promise.all(posts.map(preparePostMedia))}
+function mediaErrorLabel(kind){return kind==='video'?'This video could not be loaded. Check the Supabase Storage bucket and uploaded file format.':'This media could not be loaded.'}
+function mediaUrl(p,kind){return kind==='thumb'?(p.__thumbUrl||p.thumbnail_url||''):kind==='video'?(p.__videoUrl||p.video_url||''):(p.__audioUrl||p.audio_url||'')}
+function postDbFilter(query,p){
+  const ref=postRef(p);
+  if(ref)return query.eq(ref.field,ref.value);
+  if(p?.title)query=query.eq('title',p.title);
+  if(p?.created_at!==undefined){
+    query=p.created_at===null?query.is('created_at',null):p.created_at?query.eq('created_at',p.created_at):query;
+  }
+  if(p?.content!==undefined)query=query.eq('content',p.content);
+  return query;
+}
+async function ensureSingleDbPostMatch(operation,p,data){
+  if(!postRef(p)&&!p?.title)throw new Error('This post has no ID or title to identify it in the database.');
+  const check=await postDbFilter(supa.from('posts').select('*'),p).limit(2);
+  if(check.error)throw check.error;
+  if(!check.data?.length)throw new Error('The post was not found in the database. Refresh the page and try again.');
+  if(check.data.length!==1)throw new Error('This post matches multiple database rows. Add a unique ID column to the posts table before editing or deleting it.');
+  const mutation=operation==='update'?supa.from('posts').update(data).select('*'):supa.from('posts').delete().select('*');
+  return postDbFilter(mutation,p);
+}
+
+async function start(){
+ const url=localStorage.getItem('podly_url'),key=localStorage.getItem('podly_key');
+ if(url&&key){
+  try{
+   let name=localStorage.getItem(activeAccountKey(url))||localStorage.getItem('podly_active_username')||localStorage.getItem('podly_username')||'default';
+   supa=createAccountClient(url,key,name);
+   let s=await supa.auth.getSession();
+   if(!s.data.session){
+    const legacy=window.supabase.createClient(url,key),old=await legacy.auth.getSession();
+    if(old.data.session){
+     name=old.data.session.user.user_metadata?.username||localStorage.getItem('podly_username')||old.data.session.user.email?.split('@')[0]||'default';
+     const migrated=createAccountClient(url,key,name),m=await migrated.auth.setSession({access_token:old.data.session.access_token,refresh_token:old.data.session.refresh_token});
+     if(m.error)throw m.error;
+     await legacy.auth.signOut({scope:'local'});supa=migrated;s=await supa.auth.getSession();rememberAccount(name,url);
+    }
+   }
+   user=s.data.session?.user||null;
+   if(user){name=user.user_metadata?.username||name;rememberAccount(name,url)}
+   watchAccountClient(supa,name,url);
+   await load();
+  }catch(e){console.error(e);normalizePosts(local())}
+ }else normalizePosts(local());
+ applyInterface();account();render();if(user)refreshNotificationCount();
+}
+
+async function load(){
+ if(!supa)return;
+ const r=await supa.from('posts').select('*').order('created_at',{ascending:false});
+ if(r.error){console.error(r.error);return}
+ normalizePosts(r.data||[]);
+ await prepareAllPostMedia();
+}
+
+function account(){
+ const b=document.getElementById('account'),d=user?profileData():{};
+ b.innerHTML=user?'👤 '+esc(d.displayName||usernameOf()||'Account')+badgeMarkup(usernameOf()):'Sign in';
+ document.getElementById('postBtn').classList.toggle('hide',!canPublish());
+ document.getElementById('notifyBtn').classList.toggle('hide',!user);
+ b.onclick=user?accountMenu:auth;
+}
+
+function render(){
+ pageView='home';
+ const q=(document.getElementById('search')?.value||'').toLowerCase();
+ let list=posts.filter(p=>filter==='all'||p.type===filter).filter(p=>(p.title+' '+(p.description||'')+' '+(p.content||'')).toLowerCase().includes(q));
+ let f=list[0];
+ document.getElementById('app').innerHTML=`<section class="hero"><div class="eyebrow">Creator platform</div><h1>Podcasts, stories<br>and everything in between.</h1><p>Publish podcasts, blog posts, announcements and images from one simple website.</p></section>
+ <div class="tabs">${['all',...Object.keys(TYPES)].map(x=>`<button class="tab ${filter===x?'active':''}" onclick="filter='${x}';render()">${x==='all'?'All':TYPES[x]}</button>`).join('')}</div>
+ ${user&&'Notification' in window&&Notification.permission!=='granted'?`<div class="pushNotice"><span>🔔 Enable browser notifications for TavernTales.</span><button class="btn" onclick="enableNotifications()">Enable</button></div>`:''}
+ ${f?`<section class="feature"><article class="featureCard" onclick="openPost('${encodeURIComponent(postClientKey(f))}')">${mediaUrl(f,'thumb')?`<img class="featureImg" data-post="${encodeURIComponent(postClientKey(f))}" src="${esc(mediaUrl(f,'thumb'))}" onerror="mediaLoadFailed(this,'thumbnail')">`:`<div class="featureImg" style="display:flex;align-items:center;justify-content:center;font-size:90px">${icon(f.type)}</div>`}<div class="featureCopy"><div class="meta">${TYPES[f.type]||'Post'} · ${authorMarkup(f)}</div><h2>${esc(f.title)}</h2><p>${esc(f.description||'')}</p></div></article><aside class="side"><div class="eyebrow">Latest</div><h3>${esc(f.title)}</h3><p>${esc(f.description||'No description yet.')}</p><button class="btn primary" onclick="openPost('${encodeURIComponent(postClientKey(f))}')">Open post →</button></aside></section>`:''}
+ <div class="titleRow"><h2>${filter==='all'?'Latest posts':TYPES[filter]}</h2><span class="count">${list.length} post${list.length===1?'':'s'}</span></div>
+ ${list.length?`<section class="grid">${list.map(card).join('')}</section>`:`<div class="empty"><div style="font-size:45px">✦</div><h3>No posts yet</h3><p>Click ＋ Post to publish your first one.</p></div>`}`;
+}
+
+function card(p){
+ let txt=(p.description||p.content||'');
+ const ref=encodeURIComponent(postClientKey(p));
+ return `<article class="card" onclick="openPost('${ref}')"><div class="thumb">${mediaUrl(p,'thumb')?`<img data-post="${ref}" src="${esc(mediaUrl(p,'thumb'))}" onerror="mediaLoadFailed(this,'thumbnail')">`:icon(p.type)}</div><div class="body"><div class="meta">${TYPES[p.type]||'Post'}</div><h3>${esc(p.title)}</h3><p>${esc(txt.slice(0,115))}${txt.length>115?'…':''}</p><div class="foot"><span>${authorMarkup(p)} · ${date(p.created_at)}</span><span>${p.type==='podcast'?'🎧':''}</span></div></div></article>`
+}
+
+function recommendationCard(p){
+ const ref=encodeURIComponent(postClientKey(p)),thumb=mediaUrl(p,'thumb');
+ return `<article class="recommendItem" onclick="openPost('${ref}')"><div class="recommendThumb">${thumb?`<img data-post="${ref}" src="${esc(thumb)}" onerror="mediaLoadFailed(this,'thumbnail')">`:icon(p.type)}</div><div class="recommendCopy"><b>${esc(p.title||'Untitled')}</b><small>${authorMarkup(p)}</small><small>${date(p.created_at)}</small></div></article>`
+}
+
+function openCreator(name){
+ const creator=String(name||'').trim();if(!creator)return;
+ profileReturnPost=pageView==='post'?currentPostId:'';pageView='profile';
+ const d=profileDataFor(creator),displayName=d.displayName||creator;
+ const creatorPosts=posts.filter(p=>authorLabel(p).trim().toLowerCase()===creator.toLowerCase());
+ const picture=d.avatar?`<img class="creatorAvatar" src="${esc(d.avatar)}" alt="${esc(displayName)}" onerror="this.outerHTML='👤'">`:`<div class="creatorAvatar">👤</div>`;
+ document.getElementById('app').innerHTML=`<button class="btn" onclick="returnFromCreator()">← Back</button><section class="creatorHeader">${picture}<div><div class="creatorTitle"><h1>${esc(displayName)}</h1>${badgeMarkup(creator)}</div><div style="color:var(--muted);margin-top:6px">@${esc(creator)} · ${creatorPosts.length} post${creatorPosts.length===1?'':'s'}</div>${d.bio?`<p class="creatorBio">${esc(d.bio)}</p>`:''}</div></section><div class="titleRow"><h2>${esc(displayName)}’s posts</h2></div>${creatorPosts.length?`<section class="grid">${creatorPosts.map(card).join('')}</section>`:`<div class="empty"><h3>No posts yet</h3><p>This creator hasn’t published anything yet.</p></div>`}`;
+}
+function returnFromCreator(){const ref=profileReturnPost;profileReturnPost='';if(ref&&findPost(ref))openPost(encodeURIComponent(ref));else render()}
+
+async function openPost(ref){
+ const p=findPost(ref)||findPost(currentPostId);if(!p)return;
+ pageView='post';currentPostId=postClientKey(p);await preparePostMedia(p);
+ let comments=[],reaction='',reactionCounts={likes:0,dislikes:0};
+ const dbRef=postRef(p);
+ if(supa&&dbRef){
+  const [cr,rr,rc]=await Promise.all([
+   supa.from('comments').select('*').eq('post_id',dbRef.value).order('created_at',{ascending:true}),
+   user?supa.from('post_reactions').select('reaction').eq('post_id',dbRef.value).eq('user_id',user.id).maybeSingle():Promise.resolve({data:null}),
+   supa.rpc('get_post_reaction_counts',{p_post_id:String(dbRef.value)})
+  ]);
+  comments=cr.error?[]:(cr.data||[]);reaction=rr.data?.reaction||'';
+  if(rc.error)console.error('Could not load reaction counts:',rc.error);else if(rc.data?.[0])reactionCounts={likes:Number(rc.data[0].likes)||0,dislikes:Number(rc.data[0].dislikes)||0};
+ }else if(supa&&!dbRef){
+  comments=[];reaction='';
+ }else{
+  comments=JSON.parse(localStorage.getItem('podly_comments_'+currentPostId)||'[]');
+  const localReactions=JSON.parse(localStorage.getItem('podly_reactions')||'{}');
+  reaction=user?(localReactions[currentPostId+'|'+user.id]||''):'';
+  for(const [key,value] of Object.entries(localReactions))if(key.startsWith(currentPostId+'|')){if(value==='like')reactionCounts.likes++;if(value==='dislike')reactionCounts.dislikes++}
+ }
+ const otherPosts=posts.filter(x=>postClientKey(x)!==postClientKey(p)),videoPost=!!mediaUrl(p,'video');
+ const related=(videoPost?[...otherPosts.filter(x=>mediaUrl(x,'video')),...otherPosts.filter(x=>!mediaUrl(x,'video'))]:otherPosts).slice(0,8);
+ const replies=c=>comments.filter(x=>String(x.parent_id||'')===String(c.id));
+ function commentHTML(c,depth=0){
+  return `<div class="comment ${depth?'reply':''} ${c.pinned?'pinned':''}">
+   ${c.pinned?'<div class="pinLabel">📌 Pinned</div>':''}
+   <div class="commentHead"><b>${esc(c.username||'User')}</b><small>${date(c.created_at)}</small></div>
+   <div class="commentText">${esc(c.content)}</div>
+   <div class="commentTools">
+    ${user?`<button class="btn" onclick="setReply('${encodeURIComponent(c.id)}')">↩ Reply</button>`:''}
+    ${isOwner()?`<button class="btn" onclick="togglePin('${encodeURIComponent(c.id)}',${c.pinned?'false':'true'})">${c.pinned?'📌 Unpin':'📌 Pin'}</button>`:''}
+    ${user&&String(c.user_id)===String(user.id)?`<button class="btn danger" onclick="deleteComment('${encodeURIComponent(c.id)}')">Delete</button>`:''}
+   </div>
+   ${replies(c).map(r=>commentHTML(r,depth+1)).join('')}
+  </div>`;
+ }
+ const roots=comments.filter(c=>!c.parent_id);
+ const back=()=>{replyTo=null;render()};
+ document.getElementById('app').innerHTML=`${videoPost?'<div class="watchLayout">':''}<article class="article ${videoPost?'watchMain':''}"><button class="btn" onclick="render()">← Back</button>
+ <div class="meta" style="margin-top:20px">${TYPES[p.type]||'Post'} · ${date(p.created_at)} · ${authorMarkup(p)}</div><h1>${esc(p.title)}</h1>
+ ${mediaUrl(p,'thumb')&&!mediaUrl(p,'video')?`<img class="cover" data-post="${encodeURIComponent(postClientKey(p))}" src="${esc(mediaUrl(p,'thumb'))}" onerror="mediaLoadFailed(this,'thumbnail')">`:''}
+ ${mediaUrl(p,'video')?`<video class="video" data-post="${encodeURIComponent(postClientKey(p))}" ${mediaUrl(p,'thumb')?`poster="${esc(mediaUrl(p,'thumb'))}"`:''} controls playsinline preload="metadata" onclick="if(this.paused)this.play().catch(()=>{})" onerror="mediaLoadFailed(this,'video')"><source src="${esc(mediaUrl(p,'video'))}"${mediaMime(p.__videoUrl||p.video_url)?` type="${esc(mediaMime(p.__videoUrl||p.video_url))}"`:''}>${mediaErrorLabel('video')}</video>`:''}
+ ${mediaUrl(p,'audio')?`<audio class="audio" controls preload="metadata"><source src="${esc(mediaUrl(p,'audio'))}"${mediaMime(p.audio_url)?` type="${esc(mediaMime(p.audio_url))}"`:''}>${mediaErrorLabel('audio')}</audio>`:''}
+ <p style="color:var(--muted);font-size:17px">${esc(p.description||'')}</p><div class="articleText">${esc(p.content||'')}</div>
+ <div class="postActions"><button class="btn reaction ${reaction==='like'?'primary':''}" onclick="react(null,'like')">👍 Like <span>${reactionCounts.likes}</span></button><button class="btn reaction ${reaction==='dislike'?'primary':''}" onclick="react(null,'dislike')">👎 Dislike <span>${reactionCounts.dislikes}</span></button>
+ ${isOwner()?`<button class="btn" onclick="editor('${encodeURIComponent(postClientKey(p))}')">✏️ Edit</button><button class="btn danger" onclick="del(null)">🗑️ Delete</button>`:''}</div>
+ <section class="commentBox"><h2>Comments</h2>
+ ${user&&dbRef?`<div class="field">${replyTo?`<div class="notice">Replying to a comment <button class="btn" onclick="replyTo=null;openPost('${encodeURIComponent(postClientKey(p))}')">Cancel</button></div>`:''}<textarea id="commentText" placeholder="${replyTo?'Write a reply…':'Add a comment…'}"></textarea><div class="actions"><button class="btn primary" onclick="addComment(null)">Comment</button></div></div>`:`<div class="notice">${supa&&!dbRef?'This post has no recognized database key, so comments and reactions are disabled for this post.':'Sign in to like, dislike, reply and comment.'}</div>`}
+ <div id="comments">${roots.length?roots.map(c=>commentHTML(c)).join(''):`<div class="empty" style="padding:30px">No comments yet.</div>`}</div></section>
+ ${!videoPost&&related.length?`<section class="recommend"><h2>Recommended for you</h2><div class="recommendGrid">${related.slice(0,3).map(card).join('')}</div></section>`:''}</article>${videoPost?`<aside class="watchSidebar"><h2>Recommended</h2>${related.length?related.map(recommendationCard).join(''):`<div class="empty">No other posts yet.</div>`}</aside></div>`:''}`;
+}
+
+function setReply(id){replyTo=decodeURIComponent(id);openPost(currentPostId)}
+function modal(x){document.getElementById('modal').innerHTML=`<div class="modalBg" onclick="if(event.target===this)closeModal()">${x}</div>`}
+function closeModal(){document.getElementById('modal').innerHTML=''}
+function appDialog(message,{confirm=false,title='TavernTales',okText='OK'}={}){
+ return new Promise(resolve=>{
+  const root=document.getElementById('dialogRoot');root.replaceChildren();
+  const bg=document.createElement('div');bg.className='modalBg';
+  const box=document.createElement('div');box.className='modal small';
+  const head=document.createElement('div');head.className='modalHead';
+  const heading=document.createElement('h2');heading.textContent=title;
+  head.appendChild(heading);box.appendChild(head);
+  const text=document.createElement('p');text.style.cssText='white-space:pre-wrap;line-height:1.55;color:var(--muted);margin:0';text.textContent=String(message||'');box.appendChild(text);
+  const actions=document.createElement('div');actions.className='actions';
+  const finish=value=>{document.removeEventListener('keydown',onKey);root.replaceChildren();resolve(value)};
+  const onKey=e=>{if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();finish(false)}else if(e.key==='Enter'&&confirm){e.preventDefault();e.stopImmediatePropagation();finish(true)}};
+  if(confirm){const cancel=document.createElement('button');cancel.className='btn';cancel.textContent='Cancel';cancel.onclick=()=>finish(false);actions.appendChild(cancel)}
+  const ok=document.createElement('button');ok.className='btn primary';ok.textContent=confirm?okText:okText;ok.onclick=()=>finish(true);actions.appendChild(ok);box.appendChild(actions);
+  bg.addEventListener('click',e=>{if(e.target===bg)finish(false)});bg.appendChild(box);root.appendChild(bg);document.addEventListener('keydown',onKey);
+  (confirm?actions.firstChild:ok).focus();
+ });
+}
+function appAlert(message,title='TavernTales'){return appDialog(message,{title})}
+function appConfirm(message,title='Confirm action',okText='Delete'){return appDialog(message,{confirm:true,title,okText})}
+
+function profile(){
+ if(!user)return auth();const d=profileData();
+ modal(`<div class="modal small"><div class="modalHead"><h2>👤 Profile</h2><button class="close" onclick="closeModal()">×</button></div>
+ <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px"><div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:var(--p2);display:flex;align-items:center;justify-content:center;font-size:30px">${d.avatar?`<img src="${esc(d.avatar)}" style="width:100%;height:100%;object-fit:cover">`:'👤'}</div><div><b>${esc(usernameOf())}</b><div style="color:var(--muted);font-size:13px">Your TavernTales profile</div></div></div>
+ <div class="field"><label>Display name</label><input id="displayName" value="${esc(d.displayName||usernameOf())}"></div>
+ <div class="field"><label>Profile picture URL</label><input id="avatarUrl" value="${esc(d.avatar||'')}"></div>
+ <div class="field"><label>Bio</label><textarea id="profileBio">${esc(d.bio||'')}</textarea></div>
+ <div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveProfile()">Save profile</button></div></div>`)
+}
+function saveProfile(){saveProfileData({displayName:displayName.value.trim()||usernameOf(),avatar:avatarUrl.value.trim(),bio:profileBio.value.trim()});closeModal();account();render()}
+function accountMenu(){
+ if(!user)return auth();
+ const d=profileData(),name=d.displayName||usernameOf(),others=savedAccounts().filter(x=>String(x).toLowerCase()!==usernameOf().toLowerCase());
+ modal(`<div class="modal small"><div class="modalHead"><h2>Accounts</h2><button class="close" onclick="closeModal()">×</button></div><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">${d.avatar?`<img src="${esc(d.avatar)}" style="width:48px;height:48px;border-radius:50%;object-fit:cover">`:`<div style="width:48px;height:48px;border-radius:50%;background:var(--p2);display:flex;align-items:center;justify-content:center;font-size:22px">👤</div>`}<div><b>${esc(name)}${badgeMarkup(usernameOf())}</b><div style="color:var(--muted);font-size:13px">@${esc(usernameOf())} · Current account</div></div></div><button class="btn" style="width:100%" onclick="profile()">👤 Profile</button>${others.length?`<div class="eyebrow" style="margin:18px 0 8px">Switch account</div>${others.map(x=>`<button class="btn" data-account="${esc(x)}" style="width:100%;margin-bottom:8px" onclick="switchAccount(this.dataset.account)">👤 @${esc(x)}${badgeMarkup(x)}</button>`).join('')}`:''}<button class="btn" style="width:100%;margin-top:10px" onclick="auth('login')">＋ Add another account</button><button class="btn" style="width:100%;margin-top:10px" onclick="signout();closeModal()">Sign out @${esc(usernameOf())}</button></div>`)
+}
+
+async function switchAccount(name){
+ const url=localStorage.getItem('podly_url'),key=localStorage.getItem('podly_key');if(!url||!key)return appAlert('Connect Supabase in Settings first.');
+ const clean=String(name||'').trim();if(!clean)return;
+ const client=createAccountClient(url,key,clean),r=await client.auth.getSession();
+ if(r.error)console.warn('Could not restore saved account session:',r.error);
+ if(!r.data?.session){auth('login',clean);msg.innerHTML='<span class="err">Please sign in to this account again.</span>';return}
+ supa=client;user=r.data.session.user;rememberAccount(user.user_metadata?.username||clean,url);watchAccountClient(client,clean,url);closeModal();account();render();refreshNotificationCount()
+}
+async function signout(){
+ const name=usernameOf(),url=localStorage.getItem('podly_url')||'';
+ if(supa)await supa.auth.signOut({scope:'local'});
+ forgetAccount(name,url);if(localStorage.getItem('podly_username')?.toLowerCase()===name.toLowerCase())localStorage.removeItem('podly_username');
+ const next=savedAccounts(url)[0];if(next){await switchAccount(next);return}
+ user=null;account();render()
+}
+function home(){filter='all';render()}
+
+function editor(id=''){
+ if(id?!isOwner():!canPublish()){auth();return}
+ editId=id;let p=id?findPost(id):{type:'podcast'};
+ if(id&&!p)return;
+ modal(`<div class="modal"><div class="modalHead"><h2>${id?'Edit post':'Create a post'}</h2><button class="close" onclick="closeModal()">×</button></div>
+ <div class="notice">Upload your thumbnail and media files directly to Supabase Storage.</div>
+ <div class="formGrid"><div class="field"><label>Type</label><select id="pt">${Object.entries(TYPES).map(([k,v])=>`<option value="${k}" ${p.type===k?'selected':''}>${v}</option>`).join('')}</select></div>
+ <div class="field"><label>Title</label><input id="ttl" value="${esc(p.title||'')}" placeholder="Post title"></div>
+ <div class="field full"><label>Description</label><textarea id="desc">${esc(p.description||'')}</textarea></div>
+ <div class="field full"><label>Content</label><textarea id="content">${esc(p.content||'')}</textarea></div>
+ <div class="field"><label>Thumbnail image</label><input id="thumbFile" type="file" accept="image/*" onchange="showFileName('thumbFile','thumbName')"><div id="thumbName" class="notice" style="margin-top:8px">${p.thumbnail_url?'Current thumbnail will stay unless you choose a new file.':'No thumbnail selected.'}</div><input id="thumb" type="hidden" value="${esc(p.thumbnail_url||'')}"><button type="button" class="btn danger" style="margin-top:8px" onclick="clearPostThumbnail()">Remove thumbnail</button></div>
+ <div class="field"><label>Video / Audio file</label><input id="mediaFile" type="file" accept="video/*,audio/*" onchange="showFileName('mediaFile','mediaName')"><div id="mediaName" class="notice" style="margin-top:8px">${p.video_url?'Current video will stay unless you choose a new file.':p.audio_url?'Current audio will stay unless you choose a new file.':'No media selected.'}</div><input id="audio" type="hidden" value="${esc(p.audio_url||'')}"><input id="video" type="hidden" value="${esc(p.video_url||'')}"><button type="button" class="btn danger" style="margin-top:8px" onclick="clearPostMedia()">Remove current media</button></div></div>
+ <div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="publish()">Publish</button></div></div>`)
+}
+function showFileName(i,o){const f=document.getElementById(i)?.files?.[0],e=document.getElementById(o);if(e)e.textContent=f?`Selected: ${f.name}`:'No file selected.'}
+function clearPostMedia(){
+ const audio=document.getElementById('audio'),video=document.getElementById('video'),file=document.getElementById('mediaFile'),label=document.getElementById('mediaName');
+ if(audio)audio.value='';if(video)video.value='';if(file)file.value='';if(label)label.textContent='Media will be removed when you publish.';
+}
+function clearPostThumbnail(){
+ const thumb=document.getElementById('thumb'),file=document.getElementById('thumbFile'),label=document.getElementById('thumbName');
+ if(thumb)thumb.value='';if(file)file.value='';if(label)label.textContent='Thumbnail will be removed when you publish.';
+}
+function fileExtension(file){return (file.name.split('.').pop()||'bin').toLowerCase().replace(/[^a-z0-9]/g,'')||'bin'}
+async function uploadFile(file,folder){
+ if(!supa)throw new Error('Connect Supabase first in Settings.');
+ const ext=fileExtension(file),path=`${folder}/${crypto.randomUUID()}.${ext}`;
+ const contentType=mediaTypeForFile(file);
+ if(!contentType)throw new Error(`Could not determine the file type for ${file.name}. Try a standard image, MP4/WebM video, or audio file.`);
+ const up=await supa.storage.from(MEDIA_BUCKET).upload(path,file,{upsert:false,contentType,cacheControl:'3600'});
+ if(up.error)throw up.error;
+ const publicUrl=supa.storage.from(MEDIA_BUCKET).getPublicUrl(path).data.publicUrl;
+ return {url:publicUrl,path,mime:contentType};
+}
+
+async function publish(){
+ if(editId?!isOwner():!canPublish()){closeModal();auth();return}
+ try{
+  const thumbFile=document.getElementById('thumbFile')?.files?.[0],mediaFile=document.getElementById('mediaFile')?.files?.[0];
+  if((thumbFile||mediaFile)&&!supa)return appAlert('Connect Supabase first.');
+  const editedPost=editId?findPost(editId):null;
+  let thumbUrl=document.getElementById('thumb')?.value.trim()||'',audioUrl=document.getElementById('audio')?.value.trim()||'',videoUrl=document.getElementById('video')?.value.trim()||'';
+  if(thumbFile){const m=await uploadFile(thumbFile,'thumbnails');thumbUrl=m.url}
+  if(mediaFile){
+   const oldVideo=document.getElementById('video')?.value.trim()||'',oldAudio=document.getElementById('audio')?.value.trim()||'';
+   const m=await uploadFile(mediaFile,'media');
+   if(mediaFile.type.startsWith('video/')){videoUrl=m.url;audioUrl=''}
+   else if(mediaFile.type.startsWith('audio/')){audioUrl=m.url;videoUrl=''}
+   else throw new Error('The selected media file is not a supported video or audio file.');
+   if(oldVideo&&oldVideo!==videoUrl)try{await removeStoredMedia(oldVideo)}catch(e){console.warn('Could not remove replaced video from storage:',e)}
+   if(oldAudio&&oldAudio!==audioUrl)try{await removeStoredMedia(oldAudio)}catch(e){console.warn('Could not remove replaced audio from storage:',e)}
+  }
+  if(!mediaFile){
+   const p=editId?findPost(editId):null;
+   const removed=[];
+   if(p?.video_url&&!videoUrl)removed.push(p.video_url);
+   if(p?.audio_url&&!audioUrl)removed.push(p.audio_url);
+   for(const oldUrl of removed)try{await removeStoredMedia(oldUrl)}catch(e){console.warn('Could not remove media from storage:',e)}
+  }
+  const original=editId?findPost(editId):null;
+  const d={title:document.getElementById('ttl').value.trim(),type:document.getElementById('pt').value,description:document.getElementById('desc').value.trim(),content:document.getElementById('content').value,thumbnail_url:thumbUrl,audio_url:audioUrl,video_url:videoUrl,author_username:original?.author_username||usernameOf()};
+  if(!d.title)return appAlert('Add a title first.');
+  if(supa){
+   if(editId){
+    const p=findPost(editId);if(!p)throw new Error('Post not found.');
+    const q=await ensureSingleDbPostMatch('update',p,d);
+    const r=await q;
+    if(r.error)throw r.error;
+    if(r.data?.length!==1)throw new Error('The post could not be updated. Check Supabase permissions and try again.');
+    
+   }else{
+    const r=await supa.from('posts').insert(d).select('*');
+    if(r.error)throw r.error;
+   }
+   await load();
+  }else{
+   if(editId){const p=findPost(editId),i=posts.indexOf(p);if(i>=0)posts[i]={...posts[i],...d};}
+   else posts.unshift({id:crypto.randomUUID(),...d,created_at:new Date().toISOString(),__ttKey:crypto.randomUUID()});
+   saveLocal();await prepareAllPostMedia();
+  }
+  if(editedPost?.thumbnail_url&&editedPost.thumbnail_url!==thumbUrl)try{await removeStoredMedia(editedPost.thumbnail_url)}catch(e){console.warn('Could not remove replaced thumbnail from storage:',e)}
+  editId=null;closeModal();render()
+ }catch(e){console.error(e);appAlert(e.message||'Upload failed.','Upload failed')}
+}
+
+async function del(id){
+ const p=findPost(id)||findPost(currentPostId);if(!p||!isOwner())return;if(!await appConfirm('Do you want to delete this post? This cannot be undone.','Delete post'))return;
+ try{
+  if(supa){
+   const q=await ensureSingleDbPostMatch('delete',p);
+   const r=await q;
+   if(r.error)throw r.error;
+   if(!r.data?.length)throw new Error('The post was not deleted. Check that you are signed in as the owner and that Supabase allows this account to delete posts.');
+   
+  }
+  for(const url of [p.thumbnail_url,p.video_url,p.audio_url].filter(Boolean))try{await removeStoredMedia(url)}catch(e){console.warn('Post deleted, but a media file could not be removed from storage:',e)}
+  posts=posts.filter(x=>postClientKey(x)!==postClientKey(p));
+  saveLocal();currentPostId=null;editId=null;render()
+ }catch(e){console.error(e);appAlert(e.message||'Delete failed.','Delete failed')}
+}
+
+async function react(postId,type){
+ const p=findPost(postId)||findPost(currentPostId);if(!p)return;if(!user)return auth();
+ const ref=postRef(p);
+ if(supa&&ref){
+  const e=await supa.from('post_reactions').select('reaction').eq('post_id',ref.value).eq('user_id',user.id).maybeSingle();if(e.error)return appAlert(e.error.message,'Reaction failed');
+  if(e.data?.reaction===type){const r=await supa.from('post_reactions').delete().eq('post_id',ref.value).eq('user_id',user.id);if(r.error)return appAlert(r.error.message,'Reaction failed')}
+  else{const r=await supa.from('post_reactions').upsert({post_id:ref.value,user_id:user.id,reaction:type},{onConflict:'post_id,user_id'});if(r.error)return appAlert(r.error.message,'Reaction failed')}
+ }else if(!supa){const r=JSON.parse(localStorage.getItem('podly_reactions')||'{}'),k=postClientKey(p)+'|'+user.id;if(r[k]===type)delete r[k];else r[k]=type;localStorage.setItem('podly_reactions',JSON.stringify(r))}
+ openPost(postClientKey(p))
+}
+
+async function addComment(postId){
+ const p=findPost(postId)||findPost(currentPostId);if(!p)return;if(!user)return auth();const text=document.getElementById('commentText')?.value.trim();if(!text)return;
+ const ref=postRef(p);if(!ref&&supa)return appAlert('This post has no recognized database key.','Comment unavailable');
+ if(supa){const r=await supa.from('comments').insert({post_id:ref.value,user_id:user.id,username:usernameOf(),content:text,parent_id:replyTo||null});if(r.error)return appAlert(r.error.message,'Comment failed')}
+ else{const k='podly_comments_'+postClientKey(p),a=JSON.parse(localStorage.getItem(k)||'[]');a.push({id:crypto.randomUUID(),user_id:user.id,username:usernameOf(),content:text,parent_id:replyTo||null,pinned:false,created_at:new Date().toISOString()});localStorage.setItem(k,JSON.stringify(a))}
+ replyTo=null;openPost(postClientKey(p))
+}
+
+async function deleteComment(id){
+ id=decodeURIComponent(id);if(!user||!await appConfirm('Do you want to delete this comment? This cannot be undone.','Delete comment'))return;
+ if(supa){const r=await supa.from('comments').delete().eq('id',id).eq('user_id',user.id);if(r.error)return appAlert(r.error.message,'Delete failed')}
+ else{const k='podly_comments_'+currentPostId,a=JSON.parse(localStorage.getItem(k)||'[]');localStorage.setItem(k,JSON.stringify(a.filter(c=>String(c.id)!==String(id))))}
+ openPost(currentPostId)
+}
+
+async function togglePin(id,pin){
+ id=decodeURIComponent(id);if(!isOwner())return;
+ if(supa){const r=await supa.from('comments').update({pinned:pin}).eq('id',id);if(r.error)return appAlert(r.error.message,'Comment update failed')}
+ else{const k='podly_comments_'+currentPostId,a=JSON.parse(localStorage.getItem(k)||'[]'),i=a.findIndex(c=>String(c.id)===String(id));if(i>=0)a[i].pinned=pin;localStorage.setItem(k,JSON.stringify(a))}
+ openPost(currentPostId)
+}
+
+async function refreshNotificationCount(){
+ if(!user||!supa)return;const r=await supa.from('notifications').select('id').eq('user_id',user.id).eq('read',false);const n=document.getElementById('notifyCount');if(n)n.textContent=r.error?'':(r.data?.length||0)
+}
+async function notifications(){
+ if(!user)return auth();let list=[];
+ if(supa){const r=await supa.from('notifications').select('*').eq('user_id',user.id).order('created_at',{ascending:false}).limit(50);if(!r.error)list=r.data||[]}
+ modal(`<div class="modal small"><div class="modalHead"><h2>🔔 Notifications</h2><button class="close" onclick="closeModal()">×</button></div>${list.length?list.map(n=>`<div class="notification ${n.read?'':'unread'}" onclick="notificationOpen('${esc(n.post_id||'')}')"><div>${esc(n.message||'You have a new notification.')}</div><small>${date(n.created_at)}</small></div>`).join(''):`<div class="empty" style="padding:30px">No notifications yet.</div>`}<div class="actions"><button class="btn" onclick="markNotificationsRead()">Mark all as read</button></div></div>`)
+}
+async function notificationOpen(id){if(supa&&user)await supa.from('notifications').update({read:true}).eq('user_id',user.id);closeModal();if(id)openPost(encodeURIComponent(String(id)));refreshNotificationCount()}
+async function markNotificationsRead(){if(supa&&user)await supa.from('notifications').update({read:true}).eq('user_id',user.id);refreshNotificationCount();notifications()}
+
+async function enableNotifications(){
+ if(!('Notification' in window))return appAlert('This browser does not support notifications.');
+ const p=await Notification.requestPermission();if(p==='granted'){await appAlert('Browser notifications enabled!');render()}else await appAlert('Notification permission was not granted.','Permission not granted')
+}
+
+function auth(mode='login',suggested=''){
+ modal(`<div class="modal small"><div class="modalHead"><h2>${mode==='login'?'Sign in to TavernTales':'Create a TavernTales account'}</h2><button class="close" onclick="closeModal()">×</button></div><div class="authTabs"><button class="${mode==='login'?'active':''}" onclick="auth('login')">Sign in</button><button class="${mode==='signup'?'active':''}" onclick="auth('signup')">Create account</button></div><div class="field"><label>Username</label><input id="username" value="${esc(suggested)}" autocomplete="username"></div><div class="field"><label>Password</label><input id="pw" type="password" autocomplete="current-password"></div><div id="msg" class="msg"></div><button class="btn primary" style="width:100%" onclick="${mode==='login'?'login()':'signup()'}">${mode==='login'?'Sign in':'Create account'}</button></div>`)
+}
+async function login(){
+ const name=username.value.trim(),password=pw.value,url=localStorage.getItem('podly_url'),key=localStorage.getItem('podly_key');
+ if(!name||!password)return msg.innerHTML='<span class="err">Enter your username and password.</span>';
+ if(!url||!key)return msg.innerHTML='<span class="err">Connect Supabase in Settings first.</span>';
+ const previous=supa,previousUser=user,client=createAccountClient(url,key,name);supa=client;watchAccountClient(client,name,url);
+ const r=await client.auth.signInWithPassword({email:hiddenEmail(name),password});
+ if(r.error){supa=previous;user=previousUser;return msg.innerHTML='<span class="err">Incorrect username or password.</span>'}
+ user=r.data.user;rememberAccount(user.user_metadata?.username||name,url);closeModal();account();render();refreshNotificationCount()
+}
+async function signup(){
+ const name=username.value.trim(),password=pw.value,url=localStorage.getItem('podly_url'),key=localStorage.getItem('podly_key');
+ if(!name||name.length<3||!password)return msg.innerHTML='<span class="err">Use a username with at least 3 characters and a password.</span>';
+ if(isOfficialUsername(name))return msg.innerHTML='<span class="err">This is a reserved Official account. Create it in the Supabase dashboard first.</span>';
+ if(!url||!key)return msg.innerHTML='<span class="err">Connect Supabase in Settings first.</span>';
+ const previous=supa,previousUser=user,client=createAccountClient(url,key,name);supa=client;watchAccountClient(client,name,url);
+ const r=await client.auth.signUp({email:hiddenEmail(name),password,options:{data:{username:name,display_name:name}}});
+ if(r.error){supa=previous;user=previousUser;return msg.innerHTML='<span class="err">'+esc(r.error.message)+'</span>'}
+ if(r.data.session){user=r.data.user;rememberAccount(user.user_metadata?.username||name,url);closeModal();account();render();refreshNotificationCount()}
+ else{supa=previous;user=previousUser;msg.innerHTML='<span class="ok">Account created. Sign in with your username and password.</span>'}
+}
+
+async function saveSettings(owner){
+ localStorage.setItem('podly_theme',document.getElementById('themeSet').value);localStorage.setItem('podly_anim',document.getElementById('animSet').value);applyInterface();
+ const u=document.getElementById('su')?.value.trim()||'',k=document.getElementById('sk')?.value.trim()||'';
+ if((u&&!k)||(!u&&k))return appAlert('Enter both the Supabase Project URL and Publishable key.');
+ if(owner){const o=document.getElementById('ownerName').value.trim();if(!o)return appAlert('Enter the owner username.');localStorage.setItem('podly_owner_username',o)}
+ if(u&&k){
+  try{localStorage.setItem('podly_url',u);localStorage.setItem('podly_key',k);const name=usernameOf()||localStorage.getItem(activeAccountKey(u))||'default';supa=createAccountClient(u,k,name);watchAccountClient(supa,name,u);const session=await supa.auth.getSession();if(session.error)throw session.error;user=session.data.session?.user||null;if(user)rememberAccount(user.user_metadata?.username||name,u);await load()}
+  catch(e){console.error(e);return appAlert(e.message||'Could not connect to Supabase.','Connection failed')}
+ }
+ closeModal();account();render();if(user)refreshNotificationCount()
+}
+function applyInterface(){const theme=localStorage.getItem('podly_theme')||'dark';document.documentElement.setAttribute('data-theme',theme);document.body.classList.toggle('no-anim',localStorage.getItem('podly_anim')==='off')}
+function settings(){
+ const owner=isOwner(),connected=!!(localStorage.getItem('podly_url')&&localStorage.getItem('podly_key'));
+ modal(`<div class="modal"><div class="modalHead"><h2>⚙️ Settings</h2><button class="close" onclick="closeModal()">×</button></div><h3>Interface</h3><div class="field"><label>Theme</label><select id="themeSet"><option value="dark" ${(localStorage.getItem('podly_theme')||'dark')==='dark'?'selected':''}>Dark</option><option value="light" ${localStorage.getItem('podly_theme')==='light'?'selected':''}>Light</option></select></div><div class="field"><label>Animations</label><select id="animSet"><option value="on" ${localStorage.getItem('podly_anim')!=='off'?'selected':''}>On</option><option value="off" ${localStorage.getItem('podly_anim')==='off'?'selected':''}>Off</option></select></div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><h3>Supabase connection</h3>${connected&&!owner?`<div class="notice">Connected in this browser.</div>`:`<div class="notice">${connected?'Update the Supabase connection for this browser.':'Connect before signing in. These settings are saved in this browser.'}</div><div class="field"><label>Supabase Project URL</label><input id="su" value="${esc(localStorage.getItem('podly_url')||'')}" placeholder="https://your-project.supabase.co"></div><div class="field"><label>Supabase Publishable key</label><input id="sk" value="${esc(localStorage.getItem('podly_key')||'')}" placeholder="sb_publishable_…"></div>`}${owner?`<hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><h3>Owner</h3><div class="field"><label>Owner username</label><input id="ownerName" value="${esc(localStorage.getItem('podly_owner_username')||'AlbozoB3an')}"></div>`:''}<div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveSettings(${owner})">Save</button></div></div>`)
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElementById('dialogRoot')?.childElementCount)closeModal()});
+applyInterface();start();
+</script>
+</body></html>
